@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Window system</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+    <h1>
+        Welcome to my project!
+    </h1>
+   <h2>project title</h2>
+   <p> A Smart Window System is an automated solution designed to open or close windows based on environmental conditions. Utilizing sensors like rain detectors, temperature/humidity sensors (DHT11), gas sensors (MQ-5), and motion detectors (IR), the system responds intelligently to ensure indoor comfort and safety. Controlled by an Arduino Mega, the setup uses a DC motor and relay module to drive the mechanical movement of the window. This project aims to enhance energy efficiency, reduce manual effort, and protect indoor spaces from adverse weather and pollution. </p>
+   <h2>Problem Statement</h2>
+   <p>Most traditional windows operate manually, requiring people to open and close them by hand. This lack of automatic control is inconvenient, especially in modern smart homes or buildings that aim for automation and ease of use. Additionally, these windows do not have built-in safety features to detect environmental hazards such as gas leaks or rain. As a result, if a window remains open during such conditions, it can pose serious risks to both people and property. Moreover, manual operation often leads to improper ventilation—either too much or too little airflow—which forces cooling or heating systems to work harder. This not only reduces energy efficiency but also leads to higher electricity consumption and increased utility bills. </p>
+   <h2>Literature review</h2>
+   <p>From the literature, we found that some smart systems use sensors like light, rain, or motion to detect changes in the environment. Gas sensors are also used in homes for safety. A few systems can even close windows when it starts raining. However, most of these systems only focus on one task, like sensing rain or gas, and do not fully control the window based on different conditions. Very few systems use both sensors and motors together to make windows open or close automatically. From this, we learned that using multiple sensors like gas, rain, and motion together, along with a motor, can make windows smarter. This can help create a low-cost smart window system that works well in homes and buildings. 
+    <br>
+📖 What Others Have Done
+<br>
+Some smart systems use sensors for things like light, rain, or motion.
+<br>
+Gas sensors are used in homes for safety.
+<br>
+A few systems close windows when it rains.
+<br>
+❌ What’s Missing
+<br>
+Most systems only do one job (like detect rain or gas).
+They don’t open or close windows based on all conditions.
+Very few use motors and sensors together to make smart windows.
+<br>
+💡 What We Learned
+
+We can make windows smarter by using many sensors together (gas, rain, and motion).
+Adding a motor helps open and close windows automatically.
+A low-cost smart window system is useful for homes and buildings.</p>
+<h2>Methdology</h2>
+<p>Step 1 :     Planning the System Identified the main goals: safety, automation, and energy saving. Decided to use three sensors: gas (MQ-5), rain, and motion (IR).  Chose Arduino Mega 2560 as the brain of the system. Planned to use a motor and rack-pinion to move the window. 
+<br>
+
+ Step 2 :       Component Selection Selected low-cost and reliable components: MQ-5 for gas leak detection Rain Sensor for water detection IR Sensor for motion sensing DC motor for window movement Motor driver and power supply for control and safety 
+<br>
+
+Step 3 : Circuit & Mechanical Design Connected all sensors and motor to the Arduino. Used a rack and pinion mechanism to convert motor rotation into window movement. Designed a simple circuit diagram for clear connections. Built a CAD model to plan where sensors and motor would go. 
+<br>
+
+ Step 4 : Programming & Testing Wrote code in Arduino IDE to control sensors and motor. Programmed conditions like: If gas detected → open window + sound alarm If rain detected → close window If motion detected → open/close window as needed Tested each part separately, then all together. 
+<br>
+
+ Step 5 : Final Integration Assembled all components into one working model. Made sure the system worked in real-time with proper sensor responses. </p>
+ <h2>Project Design And Development</h2>
+ <h3>Project Design :</h3> 
+<h4>System Overview:</h4>
+Objective: To automate the opening and closing of windows based on environmental conditions like temperature, rain, LPG leaks, and human proximity.
+<h4>Scope:</h4> The system uses a combination of sensors and actuators to manage window operations for safety, comfort, and efficiency.
+
+
+<h3>System Architecture:</h3>
+
+<h4>Sensors Used:</h4>
+
+Rain Sensor: Detects rain and automatically closes the window.
+<h4>Temperature Sensor (e.g., DHT11):</h4> Measures the room temperature and opens the window if the temperature exceeds a set threshold for ventilation.
+
+<h4>LPG Gas Sensor (e.g., MQ-2):</h4> Detects the presence of LPG gas and closes the window for safety.
+
+<h4>IR Motion Sensor:</h4> Detects human movement near the window to prevent it from opening if someone is nearby.
+
+
+<h3>Actuators:</h3>
+
+<h4>DC Motor</h4>: Used to open and close the window automatically.
+<h4>Microcontroller:</h4>
+Arduino Mega (or similar): Acts as the central controller to process sensor data and control the DC motor via a relay.
+
+  <h4> Relay Module:</h4> Controls the DC motor, allowing the Arduino to switch the motor on/off based on sensor inputs.
+
+
+<h3>Power Supply:</h3>
+
+ <h4>Power Source:</h4> A stable power supply (e.g., 12V adapter or battery) to power the Arduino and motor.
+
+<h4>Energy Efficiency Considerations:</h4> Low power consumption during idle and standby states.
+
+<h3>Control Interface:</h3>
+<h4>Manual Control (Optional):</h4> Users can manually control the window using a physical switch or an app interface (if remote control is implemented).
+
+
+<h2>Project Development</h2>
+<h3>Hardware Development:</h3>
+<h4>Component Selection:</h4>
+Choose sensors with appropriate sensitivity ranges (e.g., rain sensor with a range suitable for your environment).
+Select a DC motor with adequate torque for the window's size and weight.
+
+
+<h4>Wiring and Connections:</h4>
+Wire the sensors to the Arduino using appropriate pins (e.g., analog pins for rain sensor, digital pins for motion sensors).
+Connect the DC motor to the relay, ensuring that the relay is rated for the motor's voltage and current.
+Ensure proper grounding and power connections.
+
+<h2>Software Development:</h2>
+<h3>Arduino Programming:</h3>
+
+<h4>Sensor Integration:</h4> Write the code to read sensor data and trigger actions (e.g., close window when rain is detected).
+
+<h4>Control Logic:</h4> Develop algorithms to automatically open/close the window based on sensor readings. For instance, if the temperature exceeds a certain threshold, the system opens the window; if gas is detected, the window closes.
+
+<h4>Relay Control:</h4> Use relay to control the DC motor, switching it on/off based on the logic.
+
+<h4>Manual Override (Optional):</h4> Implement a switch or app interface to allow the user to manually override automatic control.
+
+
+<h2>Testing & Debugging:</h2>
+
+
+<h3>Prototype Testing:</h3>
+
+Test the system with the sensors in different conditions (e.g., simulate rain, temperature changes, and gas leak) to ensure proper functionality.
+
+<h3>Sensor Calibration:Sensor</h3> Ensure that the sensors, such as the rain and temperature sensors, respond accurately to environmental changes.
+
+<h3>Motor Operation: </h3>Test the DC motor to ensure it opens and closes the window without issues.
+
+<h3>Safety Check:</h3> Verify the safety features, especially the LPG sensor’s response to gas leaks.
+
+
+<h2>Final Implementation:</h2>
+
+<h3>Assembly:</h3> Assemble the components into a stable and secure setup (e.g., housing for the Arduino and sensors, motor mounting for the window).
+
+<h3>Integration:</h3> Integrate all hardware components and ensure they work together as a cohesive system.
+
+<h3>Final Testing:</h3> Perform final testing to check system reliability and performance under real-world conditions.
+</p>
+<h2>Software And Hardware Implementation</h2>
+<p>Hardware Implementation
+<h3>Arduino Mega 2560</h3>
+Acts as the brain of the system.
+Collects data from sensors and controls the motor.
+
+
+<h3>Sensors Used</h3>
+
+<h4>MQ-5 Gas Sensor</h4> – Detects LPG gas leaks.
+
+<h4>Rain Sensor</h4> – Detects rainfall to trigger window closure.
+
+<h4>Limit switch</h4>  -   A limit switch detects the physical limit of movement and stops or controls a device to prevent overtravel or damage. 
+
+<h4>DHT11 Sensor</h4> – Measures temperature and humidity.
+
+
+<h4>DC Motor with Rack and Pinion</h4>
+Opens and closes the window based on commands from Arduino.
+
+
+<h3>Power Supply</h3>
+
+12V for motors, 5V for sensors and Arduino (regulated).
+
+
+<h4>Wiring and Connections</h4>
+
+All sensors and motor driver connected to the Arduino.
+
+Proper voltage regulation and secure wiring to avoid short circuits.
+
+<h3> Software Implementation</h3>
+<h4>Arduino IDE</h4>
+Used to write and upload the code to Arduino Mega.
+
+<h4>Programming Logic</h4>
+
+Reads data from sensors.
+
+<h4>Applies conditions:</h4>
+If gas is detected → open window + sound alarm.
+If rain is detected → close window.
+If motion is detected → open/close based on direction.
+Sends signals to motor accordingly.
+
+
+ <h3>Rack and Pinion Mechanism in Smart Window System – Brief Overview:</h3>>
+
+The rack and pinion mechanism is used in smart window systems to automatically open and close windows. It converts the rotational motion of a DC motor (pinion gear) into linear motion of a straight gear (rack).
+
+<h4>Pinion:</h4> A small circular gear attached to the motor shaft.
+
+<h4>Rack:</h4> A straight gear that moves horizontally when the pinion rotates.
+
+
+<h4></h4>
+When the motor turns the pinion:
+
+The rack moves forward or backward, sliding the window open or closed.
+
+The direction of motor rotation controls whether the window opens or shuts.
+
+
+<h4>Benefits:</h4>
+Precise control over window position.
+Smooth linear movement.
+Compact and efficient for smart automation.
+
+
+<div><h3>CODE : </h3>   
+<br>
+#include <DHT.h>
+<br>
+#define switch1 A0
+<br>
+#define switch2 A1
+<br>
+#define smokePin A2
+<br>
+#define rainPin A3
+<br>
+
+#define motorIN1 3
+<br>
+#define motorIN2 4
+<br>
+
+#define dhtPin 2
+<br>
+#define DHTTYPE DHT11
+<br>
+DHT dht(dhtPin, DHTTYPE);
+<br>
+
+void setup() {
+<br>
+  pinMode(switch1, INPUT_PULLUP);
+<br>
+  pinMode(switch2, INPUT_PULLUP);
+<br>
+
+  pinMode(motorIN1, OUTPUT);
+<br>
+  pinMode(motorIN2, OUTPUT);
+<br>
+
+  Serial.begin(9600);
+<br>
+  dht.begin();
+<br>
+}
+
+<br>
+void loop() {
+<br>
+  float temp = dht.readTemperature();
+<br>
+  int smoke = analogRead(smokePin);
+<br>
+  int rain = analogRead(rainPin);
+<br>
+
+  Serial.print("Temp: "); Serial.print(temp);
+<br>
+  Serial.print(" | Smoke: "); Serial.print(smoke);
+<br>
+  Serial.print(" | Rain: "); Serial.println(rain);
+<br>
+
+  if (smoke > 600 || temp > 38) {
+<br>
+    // Rotate clockwise until switch1 is pressed
+<br>
+    digitalWrite(motorIN1, HIGH);
+<br>
+    digitalWrite(motorIN2, LOW);
+<br>
+    while (digitalRead(switch1) == HIGH) {
+<br>
+      // Keep rotating clockwise
+<br>
+      delay(100); // prevent CPU overuse
+<br>
+    }
+<br>
+    stopMotor();
+<br>
+  }
+<br>
+
+  if (rain < 700) {
+<br>
+    // Rotate anticlockwise until switch2 is pressed
+<br>
+    digitalWrite(motorIN1, LOW);
+<br>
+    digitalWrite(motorIN2, HIGH);
+<br>
+    while (digitalRead(switch2) == HIGH) {
+<br>
+      // Keep rotating anticlockwise
+<br>
+      delay(100); // prevent CPU overuse
+<br>
+    }
+<br>
+    stopMotor();
+<br>
+  }
+<br>
+
+  delay(500); // avoid spamming Serial Monitor
+<br>
+}
+
+<br>
+void stopMotor() {
+<br>
+  digitalWrite(motorIN1, LOW);
+<br>
+  digitalWrite(motorIN2, LOW);
+<br>
+}
+</p></div>
+<h2>Result And discussion</h2>
+<p>What We Did (Testing & Prototype)
+<br>
+Built a working model of the smart window using Arduino, sensors, and motor.
+
+<h3>Tested each sensor:</h3>
+Gas sensor opened the window and gave an alert when gas was detected.
+Rain sensor closed the window when it started raining.
+IR sensor opened/closed the window when someone came close or left.
+
+<h3> What We Observed</h3>
+All sensors worked well after some adjustments.
+The motor system moved the window smoothly and quietly.
+The system responded to real conditions like rain or gas.
+It worked without needing any manual control.
+
+
+
+ <h3>Conclusion from Testing</h3>
+
+The smart window improved safety, saved energy, and was easy to use.
+
+
+It shows that simple components can create smart solutions.</p>
+<h2>Project image</h2>
+<img src="pic 1.png" alt="Smart Window System" class="project-img">
+
+
+</body>
+</html>
